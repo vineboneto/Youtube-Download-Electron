@@ -5,7 +5,7 @@ let mainWindow
 // Cria Janela
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
-        width: 800,
+        height: 400,
         width: 600,
         webPreferences: { backgryyoundThrottling: false, nodeIntegration: true }
     })
@@ -18,6 +18,8 @@ app.on('ready', () => {
     const mainMenu = Menu.buildFromTemplate(menuTemplate)
     Menu.setApplicationMenu(mainMenu)
 })
+
+
 
 const menuTemplate = [
     {
