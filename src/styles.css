@@ -1,9 +1,19 @@
+@font-face {
+    font-family: 'Poppins';
+    src: local("/assets/font/Poppins/Poppins-Regular.ttf") format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+* {
+    font-family: 'Poppins' cursive;
+}
+
 body {
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: aqua;
+    background-color: rgb(42, 37, 37);
     box-sizing: border-box;
 
     display: flex;
@@ -16,23 +26,43 @@ body {
 h1 {
     color: violet;
     text-align: center;
+    font-size: 5rem;
 }
+
+.neon {
+    color: #fff;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff,
+      0 0 100px #0ff,
+      0 0 150px #0ff;
+}
+
 
 input, button {
     height: 2rem;
-    border: 1px solid thistle;
+    border: 0;
     outline: 0;
+    font-size: 1.2rem;
+    background-color: rgb(42, 37, 37);
 }
 
 input {
     border-radius: 0.8rem 0 0 0.8rem;
     padding-left: 1rem;
+    /* background-color:rgba(0, 255, 255, 0.01); */
 }
 
 button {
     height: 2.2rem;
-    color: #fff;
+    color: rgb(42, 37, 37);
     border-radius: 0 0.8rem 0.8rem 0;
     margin: 0;
-    background-color: violet;
+    background-color:rgba(0, 255, 255, 0.1);
+    font-weight: bold;
 }
+
