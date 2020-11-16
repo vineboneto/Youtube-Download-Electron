@@ -10,7 +10,7 @@ app.on('ready', () => {
             nodeIntegration: true
         }
     })
-    mainWindow.loadURL(`file://${__dirname}/index.html`)
+    mainWindow.loadURL(`file://${__dirname}/src/index.html`)
 })
 
 app.on('window-all-closed', () => {

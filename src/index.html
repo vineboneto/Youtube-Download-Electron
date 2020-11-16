@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="styles.css">
     <title>Convert Video</title>
 </head>
 <body>
-    <h1>Convert Video</h1>
-    We are using node 
-    <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>, and Electron 
-    <script>document.write(process.versions.electron)</script>.
+    <main>
+        <h1>Convert Video</h1>
+        <div class="input-block">
+            <input placeholder="Enter the URL video">
+            <button>Download to Mp3</button>
+        </div>
+    </main>
 </body>
 </html>
