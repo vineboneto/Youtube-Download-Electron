@@ -1,0 +1,23 @@
+{
+  "name": "youtubeConverter-electron",
+  "version": "1.0.0",
+  "description": "Criar um software desktop para fazer download do youtube em mp3 e mp4",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vineboneto/youtubeConverter-electron.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vineboneto/youtubeConverter-electron/issues"
+  },
+  "homepage": "https://github.com/vineboneto/youtubeConverter-electron#readme",
+  "devDependencies": {
+    "electron": "^10.1.5"
+  }
+}
