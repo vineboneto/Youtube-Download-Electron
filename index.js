@@ -7,9 +7,7 @@ app.on('ready', () => {
     mainWindow = new BrowserWindow({
         width: 800,
         width: 600,
-        webPreferences: {
-            nodeIntegration: true
-        }
+        webPreferences: { backgryyoundThrottling: false, nodeIntegration: true }
     })
     mainWindow.loadURL(`file://${__dirname}/src/index.html`)
     mainWindow.on('closed', () => {
@@ -53,3 +51,8 @@ if (process.env.NODE_ENV !== 'production') {
         ]
     })
 }
+
+ipcMain.on('window:url', (event, url) => {
+    console.log(url)
+    event.reply('window:replay', url)
+})
