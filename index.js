@@ -1,19 +1,17 @@
-const { app, BrowserWindow } = require('electron')
+const { ipcMain, ipcRenderer, app, BrowserWindow } = require('electron')
 
-function createWindow() {
-    const win = new BrowserWindow({
+let mainWindow
+
+app.on('ready', () => {
+    mainWindow = new BrowserWindow({
         width: 800,
-        height: 600,
+        width: 600,
         webPreferences: {
             nodeIntegration: true
         }
     })
-
-    win.loadFile('index.html')
-    win.webContents.openDevTools()
-}
-
-app.whenReady().then(createWindow)
+    mainWindow.loadURL(`file://${__dirname}/index.html`)
+})
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
