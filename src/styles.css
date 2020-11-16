@@ -1,11 +1,19 @@
 @font-face {
     font-family: 'Poppins';
-    src: local("/assets/font/Poppins/Poppins-Regular.ttf") format('woff2');
+    src: local("/assets/fonts/Poppins/Poppins-Regular.ttf") format('woff2');
     font-weight: 600;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Iceland';
+    src: local("/assets/fonts/Iceland/Iceland-Regular.ttf") format('woff2');
+    font-style: normal;
+    font-weight: 600;
+}
+
 * {
-    font-family: 'Poppins' cursive;
+    font-family: Poppins;
 }
 
 body {
@@ -13,7 +21,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: rgb(42, 37, 37);
+    background-color: #18191A;
     box-sizing: border-box;
 
     display: flex;
@@ -24,22 +32,11 @@ body {
 }
 
 h1 {
-    color: violet;
     text-align: center;
-    font-size: 3rem;
-}
-
-.neon {
+    font-size: 5rem;
+    animation: neon-h1 1.5s ease-in-out infinite alternate;
     color: #fff;
-    text-shadow:
-      0 0 5px #fff,
-      0 0 10px #fff,
-      0 0 20px #fff,
-      0 0 40px #fff,
-      0 0 80px #0ff,
-      0 0 90px #0ff,
-      0 0 100px #0ff,
-      0 0 150px #0ff;
+    font-family: Iceland;
 }
 
 form {
@@ -51,22 +48,55 @@ input, button {
     border: 0;
     outline: 0;
     font-size: 1.2rem;
-    font-size: 1rem;
 }
 
 input {
     background-color: rgb(42, 37, 37);
+    border-radius: 0.8rem 0 0 0.8rem ;
     padding-left: 1rem;
     color: #fff;
     font-style: italic;
+    margin-right: 1rem;
+    width: 30rem;
 }
 
 button {
     height: 2.2rem;
-    color: rgb(42, 37, 37);
     padding: 0 1rem;
     border-radius: 0 0.8rem 0.8rem 0;
-    background-color:rgba(0, 255, 255, 0.3);
+    background-color:  #228DFF;
     font-weight: bold;
 }
+
+button:hover {
+    color: #fff;
+    animation: neon-button 1.5s ease-in-out infinite alternate;
+
+}
+
+@keyframes neon-button {
+    from {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+    }
+}
+
+@keyframes neon-h1 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+    }
+}
+
+@media(max-width: 768px) {
+    input {
+        width: 15rem;
+    }
+}
+
+
 
