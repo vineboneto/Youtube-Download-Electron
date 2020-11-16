@@ -54,7 +54,7 @@ input, button {
 input {
     border-radius: 0.8rem 0 0 0.8rem;
     padding-left: 1rem;
-    /* background-color:rgba(0, 255, 255, 0.01); */
+    color: #fff;
 }
 
 button {
