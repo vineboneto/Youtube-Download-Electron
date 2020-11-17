@@ -1,20 +1,21 @@
 @font-face {
-    font-family: 'Poppins';
-    src: local("/assets/fonts/Poppins/Poppins-Regular.ttf") format('woff2');
-    font-weight: 600;
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Regular.ttf");
+    font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Iceland';
-    src: local("/assets/fonts/Iceland/Iceland-Regular.ttf") format('woff2');
+    font-family: "Iceland";
+    src: url("../fonts/Iceland/Iceland-Regular.ttf");
     font-style: normal;
-    font-weight: 600;
+    font-weight: normal;
 }
 
 * {
     font-family: Poppins;
 }
+
 
 body {
     width: 100vw;
@@ -44,11 +45,12 @@ form {
 }
 
 input, button {
-    height: 2rem;
+    height: 3rem;
     border: 0;
     outline: 0;
     font-size: 1.2rem;
 }
+
 
 input {
     background-color: rgb(42, 37, 37);
@@ -58,14 +60,17 @@ input {
     font-style: italic;
     margin-right: 1rem;
     width: 30rem;
+    color: rgb(131, 127, 127)
 }
 
 button {
-    height: 2.2rem;
     padding: 0 1rem;
     border-radius: 0 0.8rem 0.8rem 0;
-    background-color:  #228DFF;
+    background-color:  #0e355f;
     font-weight: bold;
+    color: rgb(42, 37, 37);
+    cursor: pointer;
+    margin-right: 1rem;
 }
 
 button:hover {
@@ -92,9 +97,60 @@ button:hover {
     }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 952px) {
+    input, button {
+        font-size: 0.9rem;
+    }
+    
     input {
-        width: 15rem;
+        width: 15rem;   
+    }
+
+    button {
+        width: 5;
+    }
+
+    form {
+        margin: 0;
+    }
+}
+
+@media(max-width: 630px) {
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input, button {
+        margin: 0.5rem 1rem;
+        border-radius: 0.8rem;
+        height: 3rem;
+    }
+
+    input {
+        width: 462px;
+    }
+
+    button {
+        width: 480px;
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+@media(max-width: 520px) {
+    h1 {
+        max-width: 430px;
+    }
+    
+    input {
+        width: 304px;
+    }
+    
+    button {
+        width: 322px;
     }
 }
 

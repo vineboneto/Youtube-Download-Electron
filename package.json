@@ -2,7 +2,7 @@
   "name": "youtubeConverter-electron",
   "version": "1.0.0",
   "description": "Criar um software desktop para fazer download do youtube em mp3 e mp4",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
