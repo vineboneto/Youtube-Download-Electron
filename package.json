@@ -1,5 +1,5 @@
 {
-  "name": "youtubeConverter-electron",
+  "name": "youtube-download-electron",
   "version": "1.0.0",
   "description": "Criar um software desktop para fazer download do youtube em mp3 e mp4",
   "main": "main.js",

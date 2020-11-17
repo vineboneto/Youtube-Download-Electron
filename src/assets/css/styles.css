@@ -16,7 +16,6 @@
     font-family: Poppins;
 }
 
-
 body {
     width: 100vw;
     height: 100vh;
@@ -41,7 +40,25 @@ h1 {
 }
 
 form {
-    margin-top: 6rem ;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "input-url button-left button-right";
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+    column-gap: 15px;
+}
+
+#mp3 {
+    grid-area: button-left;
+}
+
+#mp4 {
+    grid-area: button-right;
+}
+
+#url {
+    grid-area: input-url;
 }
 
 input, button {
@@ -51,14 +68,12 @@ input, button {
     font-size: 1.2rem;
 }
 
-
 input {
     background-color: rgb(42, 37, 37);
     border-radius: 0.8rem 0 0 0.8rem ;
     padding-left: 1rem;
     color: #fff;
     font-style: italic;
-    margin-right: 1rem;
     width: 30rem;
     color: rgb(131, 127, 127)
 }
@@ -70,7 +85,6 @@ button {
     font-weight: bold;
     color: rgb(42, 37, 37);
     cursor: pointer;
-    margin-right: 1rem;
 }
 
 button:hover {
@@ -101,10 +115,6 @@ button:hover {
     input, button {
         font-size: 0.9rem;
     }
-
-    form {
-        margin: 0;
-    }
 }
 
 @media(max-width: 890px) {
@@ -119,40 +129,89 @@ button:hover {
     }
 }
 
-@media(max-width: 730px) {
+/* Tablet */
+
+@media(max-width: 750px) {
     form {
-        height: 8rem;
-        display: grid;
-        grid-template-rows: 50% 50%;
-        grid-template-columns: 0.5fr 0.5fr;
-        grid-template-areas: "input input"
-        "button button";
+        grid-template-areas: "input-url input-url"
+         "button-left button-right";
     }
 
     input {
-        grid-area: input;
-        width: 490px;
+        max-width: 100%;
+        margin-right: 0;
+        width: 30rem;
     }
 }
 
-
-@media(max-width: 555px) {
-    form {
-        display: flex;
-        flex-direction: column;
-    }
+@media(max-width: 530px) {
     h1 {
         max-width: 430px;
     }
-    
-    input {
-        width: 304px;
+
+    input,button {
+        max-width: 412px;
     }
-    
+
+}
+
+/* MOBILE */
+
+@media(max-width: 450px) {
+    form {
+        grid-template-areas: "input-url"
+        "button-left"
+        "button-right";
+    }
+
+    input, button {
+        border-radius: 0.8rem;
+    }
+
     button {
-        width: 322px;
+        max-width: 362px;
+    }
+
+    input {
+        max-width: 342px;
     }
 }
 
+@media(max-width: 395px) {  
+    button {
+        max-width: 300px;
+    }
+
+    input {
+        max-width: 280px;
+    }
+}
+
+@media(max-width: 330px) {
+    h1 {
+        font-size: 4rem;
+    }
+    button {
+        max-width: 260px;
+    }
+
+    input {
+        max-width: 240px;
+    }
+}
+
+@media(max-width: 275px) {
+    h1 {
+        max-width: 260px;
+        font-size: 3rem;
+    }
+    button {
+        max-width: 220px;
+    }
+
+    input {
+        max-width: 200px;
+    }
+}
 
 

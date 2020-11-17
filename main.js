@@ -21,6 +21,7 @@ app.on('ready', () => {
 
 // Download video
 ipcMain.on('download:url', (event, url, format) => {
+    // Download in mp3 or mp4
     const download =  format == 'mp3' ? youtubedl(url, ['-x', '--audio-format', 'mp3'], { __dirname })
     : youtubedl(url, ['--format=18'], { __dirname })
    
