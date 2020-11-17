@@ -97,17 +97,9 @@ button:hover {
     }
 }
 
-@media(max-width: 952px) {
+@media(max-width: 974px) {
     input, button {
         font-size: 0.9rem;
-    }
-    
-    input {
-        width: 15rem;   
-    }
-
-    button {
-        width: 5;
     }
 
     form {
@@ -115,32 +107,40 @@ button:hover {
     }
 }
 
-@media(max-width: 630px) {
-    form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    input, button {
-        margin: 0.5rem 1rem;
-        border-radius: 0.8rem;
-        height: 3rem;
-    }
-
+@media(max-width: 890px) {
     input {
-        width: 462px;
-    }
-
-    button {
-        width: 480px;
-        margin-right: 0;
-        margin-left: 0;
+        width: 25rem;
     }
 }
 
-@media(max-width: 520px) {
+@media(max-width: 820px) {
+    input {
+        width: 20rem;
+    }
+}
+
+@media(max-width: 730px) {
+    form {
+        height: 8rem;
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 0.5fr 0.5fr;
+        grid-template-areas: "input input"
+        "button button";
+    }
+
+    input {
+        grid-area: input;
+        width: 490px;
+    }
+}
+
+
+@media(max-width: 555px) {
+    form {
+        display: flex;
+        flex-direction: column;
+    }
     h1 {
         max-width: 430px;
     }
