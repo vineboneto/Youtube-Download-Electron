@@ -28,6 +28,7 @@
     "electron": "^10.1.5"
   },
   "dependencies": {
+    "electron-is-dev": "^1.2.0",
     "electron-squirrel-startup": "^1.0.0",
     "youtube-dl": "^3.0.2"
   },

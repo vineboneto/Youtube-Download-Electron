@@ -1,5 +1,7 @@
 const { app, ipcMain, BrowserWindow } = require('electron')
 const createMenu = require('./src/electron/menu.js')
+const youtubedl = require('youtube-dl')
+const fs = require('fs')
 
 let mainWindow
 
@@ -16,9 +18,21 @@ app.on('ready', () => {
     createMenu()
 })
 
+
 // Download video
-ipcMain.on('download:url', (event, url) => {
-    console.log('Executando')
+ipcMain.on('download:url', (event, url, format) => {
+    const download =  format == 'mp3' ? youtubedl(url, ['-x', '--audio-format', 'mp3'], { __dirname })
+    : youtubedl(url, ['--format=18'], { __dirname })
+   
+
+    download.on('info', function(info) {
+        console.log('Download started')
+        console.log('filename: ' + info._filename)
+        console.log('size: ' + info.size)
+        console.log('size: ' + info._duration_raw)
+        console.log('size: ' + info._duration_raw)
+    })
+    download.pipe(fs.createWriteStream(`download.${format}`)) 
 })
 
 
