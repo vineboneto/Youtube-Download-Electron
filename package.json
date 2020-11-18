@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vineboneto/youtubeConverter-electron.git"
+    "url": "git+https://github.com/vineboneto/youtube-download-electron.git"
   },
   "keywords": [],
   "author": "Vinicius Gazolla Boneto",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vineboneto/youtubeConverter-electron/issues"
+    "url": "https://github.com/vineboneto/youtube-download-electron/issues"
   },
-  "homepage": "https://github.com/vineboneto/youtubeConverter-electron#readme",
+  "homepage": "https://github.com/vineboneto/youtube-download-electron#readme",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
@@ -39,7 +39,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "youtubeConverter_electron"
+            "name": "youtube_download_electron"
           }
         },
         {
