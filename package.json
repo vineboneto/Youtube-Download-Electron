@@ -4,7 +4,7 @@
   "description": "Criar um software desktop para fazer download do youtube em mp3 e mp4",
   "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "cross-env NODE_ENV=dev nodemon --exec \"\"electron-forge start\"\"",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
@@ -25,7 +25,10 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "^10.1.5"
+    "cross-env": "^7.0.2",
+    "electron": "^10.1.5",
+    "electron-reload": "^1.5.0",
+    "nodemon": "^2.0.6"
   },
   "dependencies": {
     "electron-is-dev": "^1.2.0",

@@ -2,6 +2,8 @@ const { app, ipcMain, BrowserWindow } = require('electron')
 const createMenu = require('./src/electron/menu.js')
 const youtubedl = require('youtube-dl')
 const fs = require('fs')
+const readline = require('readline');
+const path = require('path');
 
 let mainWindow
 
@@ -28,23 +30,25 @@ ipcMain.on('video:url', (event, url, format) => {
 
     // Download video
     youtubedl.getInfo(url, [], (err, info) => {
+        if (err) throw err
         video.pipe(fs.createWriteStream(`${info.title}.${format}`)) 
     })
+})
 
-    video.on('info', (info) => {
-        console.log('filename: ' + info._filename)
+ipcMain.on('video:info', (event, url) => {
+
+    console.log('Entoru em video:info')
+    youtubedl.getInfo(url, [], (err, info) => {
+        console.log('Entoru em getInfo()')
+        if (err) throw err
+        console.log('filename: ' + info.title)
         console.log('duration: ' + info.duration)
-        console.log('size: ' + Math.ceil(info.size / 1024 / 1024))
+        console.log('size: ' + Math.ceil(info.size / 1024 / 1024).toFixed(2))
         console.log('duration_hms: ' + info._duration_hms)
-        console.log('duration_raw: ' + Math.ceil(info._duration_raw / 1024 / 1024))
+        console.log('duration_raw: ' + Math.ceil(info._duration_raw / 1024 / 1024).toFixed(2))
         // Envia as informaçoes do video para scrips.js
         event.reply('video:info', info)
     })
-
-
-
-    
-    
 })
 
 
