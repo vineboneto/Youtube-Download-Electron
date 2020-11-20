@@ -2,16 +2,18 @@ const { ipcRenderer } = require('electron')
 
 const button = document.getElementsByTagName('button')
 const input = document.getElementById('url')
+const span = document.getElementsByTagName('span')
 
 input.addEventListener('paste', (event) => {
-    let url = (event.clipboardData || window.clipboardData).getData('text')
-    url = matchYoutubeUrl(input.value)
-    console.log(url)
-    if (!url) {
+    event.stopPropagation();
+    let inputValue = (event.clipboardData || window.clipboardData).getData('text')
+    let URL = matchYoutubeUrl(inputValue)
+    if (!URL) {
         console.log('URL INVALIDA')
     } else {
-        ipcRenderer.send('video:info', url)
+        ipcRenderer.send('video:info', URL)
     }
+
 })
 
 function matchYoutubeUrl(url) {
