@@ -1,5 +1,7 @@
 #info-video {
     margin-top: 1rem;
+    max-width: 100%;
+    flex-wrap: wrap;
     width: 100%;
 
     display: grid;
@@ -14,6 +16,7 @@
 
 #info-video img {
     grid-area: img;
+    margin-right: 1rem;
     max-width: 10rem;
 }
 
@@ -30,7 +33,7 @@
 }
 
 span {
-    color: rgb(131, 127, 127)
+    color: rgb(131, 127, 127);
 }
 
 span:hover {
@@ -44,5 +47,46 @@ span:hover {
     }
     to {
       text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+    }
+}
+
+@media(max-width: 820px) {
+    span {
+        font-size: 0.9rem;
+    }
+}
+
+@media(max-width: 530px) {
+    span {
+        font-size: 0.8rem;
+    }
+}
+
+@media(max-width: 450px) {
+    #info-video img {
+        max-width: 7rem;
+    }
+
+    span {
+        font-size: 0.6rem;
+    }
+}
+
+@media(max-width: 395px) {
+    #info-video img {
+        max-width: 7rem;
+    }
+
+    #info-video {
+        grid-template-areas: "img img img"
+        "title title title"
+        "time time time"
+        "size size size";
+    }
+}
+
+@media(max-width: 330px) {
+    #info-video img {
+        max-width: 6rem;
     }
 }

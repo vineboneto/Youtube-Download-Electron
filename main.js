@@ -22,28 +22,31 @@ app.on('ready', () => {
 
 
 // Download video
-ipcMain.on('video:url', (event, url, format) => {
+ipcMain.on('video:download', (event, url, format) => {
 
+    fs.mkdir(path.join(__dirname, 'downloads'), (err) => { 
+        if (err) { 
+            return console.error(err); 
+        }
+    }); 
     // Select mp3 or mp4
-    const video = format == 'mp3' ? youtubedl(url, ['-x', '--audio-format', 'mp3'], { __dirname })
+    const video = format == 'mp3' ? youtubedl(url, ['-x', '--audio-format', 'mp3'], { cwd: __dirname })
     : youtubedl(url, [], { cwd: __dirname })
 
     // Download video
     youtubedl.getInfo(url, [], (err, info) => {
         if (err) throw err
-        video.pipe(fs.createWriteStream(`${info.title}.${format}`)) 
+        video.pipe(fs.createWriteStream(`downloads/${info.title}.${format}`)) 
     })
 })
 
-ipcMain.on('video:info', (event, url) => {
 
-    console.log('Entoru em video:info')
+ipcMain.on('video:info', (event, url) => {
     youtubedl.getInfo(url, [], (err, info) => {
-        console.log('Entoru em getInfo()')
         if (err) throw err
-        console.log('filename: ' + info.title)
+        console.log('filename: ' + info._filename)
         console.log('duration: ' + info.duration)
-        console.log('size: ' + Math.ceil(info.size / 1024 / 1024).toFixed(2))
+        console.log('size: ' + info.filesize)
         console.log('duration_hms: ' + info._duration_hms)
         console.log('duration_raw: ' + Math.ceil(info._duration_raw / 1024 / 1024).toFixed(2))
         // Envia as informaçoes do video para scrips.js

@@ -112,18 +112,29 @@ button:hover {
 }
 
 @media(max-width: 974px) {
+    main {
+        max-width: 840px;
+    }
+    
     input, button {
         font-size: 0.9rem;
     }
 }
 
 @media(max-width: 890px) {
+    main {
+        max-width: 760px;
+    }
     input {
         width: 25rem;
     }
 }
 
 @media(max-width: 820px) {
+    main {
+        max-width: 680px;
+    }
+    
     input {
         width: 20rem;
     }
@@ -132,6 +143,10 @@ button:hover {
 /* Tablet */
 
 @media(max-width: 750px) {
+    main {
+        max-width: 498px;
+    }
+    
     form {
         grid-template-areas: "input-url input-url"
          "button-left button-right";
@@ -145,6 +160,10 @@ button:hover {
 }
 
 @media(max-width: 530px) {
+    main {
+        max-width: 430px;
+    }
+    
     h1 {
         max-width: 430px;
     }
@@ -158,6 +177,10 @@ button:hover {
 /* MOBILE */
 
 @media(max-width: 450px) {
+    main {
+        width: 360px;
+    }
+    
     form {
         grid-template-areas: "input-url"
         "button-left"
@@ -178,6 +201,10 @@ button:hover {
 }
 
 @media(max-width: 395px) {  
+    main {
+        width: 298px;
+    }
+    
     button {
         max-width: 300px;
     }
@@ -188,6 +215,10 @@ button:hover {
 }
 
 @media(max-width: 330px) {
+    main {
+        width: 258px;
+    }
+    
     h1 {
         font-size: 4rem;
     }
@@ -201,6 +232,10 @@ button:hover {
 }
 
 @media(max-width: 275px) {
+    main {
+        width: 218px;
+    }
+    
     h1 {
         max-width: 260px;
         font-size: 3rem;
