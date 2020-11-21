@@ -1,0 +1,48 @@
+#info-video {
+    margin-top: 1rem;
+    width: 100%;
+
+    display: grid;
+    grid-template-areas: "img img title"
+    "img img time"
+    "img img size";
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 5px;
+    column-gap: 5px;
+}
+
+#info-video img {
+    grid-area: img;
+    max-width: 10rem;
+}
+
+#info-video #title {
+    grid-area: title;
+}
+
+#info-video #time {
+    grid-area: time;
+}
+
+#info-video #size {
+    grid-area: size;
+}
+
+span {
+    color: rgb(131, 127, 127)
+}
+
+span:hover {
+    color: #fff;
+    animation: neon-span 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-span {
+    from {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+    }
+}

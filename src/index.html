@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/info.css">
     <title>Convert Video</title>
 
 </head>
@@ -12,17 +13,19 @@
     <main>
         <h1>Video Convert</h1>
         <form>
-            <input id="url" placeholder="Enter the URL video" type="text" >
+            <input id="url" placeholder="Paste the URL video" type="text" >
             <button id="mp3" type="submit">Download to MP3</button>
             <button id="mp4" type="submit">Download to MP4</button>
         </form>
-
+        
+        
         <div id="info-video">
-            <span>url</span>
-            <span>title</span>
-            <img src="" alt="video-image">
-            <span>duração</span>
+            <span id="title">Lofi-Hip Hop</span>
+            <img src="assets/imgs/905858.jpg" alt="video-image">
+            <span id="time">05:10</span>
+            <span id="size">5.2MB</span>
         </div>
+        
     </main>
 
     <script src="js/script.js"></script>
