@@ -1,4 +1,5 @@
 const { ipcRenderer } = require('electron')
+const { dialog } = require('electron').remote
 
 const button = document.getElementsByTagName('button')
 const input = document.getElementById('url')
@@ -18,7 +19,7 @@ input.addEventListener('paste', (event) => {
 ipcRenderer.on('video:info', (event, info) => {
 
     document.getElementById('title').innerHTML = info.title
-    document.getElementById('size').innerHTML = Math.ceil(info.filesize / 1024 / 1024).toFixed(2)
+    document.getElementById('size').innerHTML = `${Math.ceil(info.filesize / 1024 / 1024).toFixed(2)}MB`
     document.getElementById('time').innerHTML = info._duration_hms
     document.querySelector('img').src = info.thumbnail
 })
@@ -33,17 +34,40 @@ function matchYoutubeUrl(url) {
 // MP3
 button[0].addEventListener('click', (event) => {
     event.preventDefault()
-    // Pegar valor de input
+    downloadStarted()
     ipcRenderer.send('video:download', input.value, 'mp3')
 }) 
 
 // MP4
 button[1].addEventListener('click', (event) => {
     event.preventDefault()
-    // Pegar valor de input
-    const { value } = document.querySelector('input')
-    ipcRenderer.send('video:download', value, 'mp4')
+    donwloadStarted()
+    ipcRenderer.send('video:download', input.value, 'mp4')
 }) 
+
+ipcRenderer.on('video:download', (event, message) => {
+    console.log('Entrou')
+    const options = {
+        type: 'info',
+        title: 'Downloaded',
+        message: message,
+    }
+    let response = dialog.showMessageBox(null, options)
+    console.log(response)
+})
+
+function downloadStarted() {
+    const options = {
+        type: 'info',
+        title: 'Download',
+        message: 'Download started'
+    }
+    dialog.showMessageBox(null, options, (response) => {
+        console.log(response)
+    })
+}
+
+
 
 
 

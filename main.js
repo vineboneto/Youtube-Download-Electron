@@ -2,8 +2,6 @@ const { app, ipcMain, BrowserWindow } = require('electron')
 const createMenu = require('./src/electron/menu.js')
 const youtubedl = require('youtube-dl')
 const fs = require('fs')
-const readline = require('readline');
-const path = require('path');
 
 let mainWindow
 
@@ -12,7 +10,7 @@ app.on('ready', () => {
     mainWindow = new BrowserWindow({
         height: 600,
         width: 700,
-        webPreferences: { backgryyoundThrottling: false, nodeIntegration: true }
+        webPreferences: { enableRemoteModule: true, backgryyoundThrottling: false, nodeIntegration: true }
     })
     mainWindow.loadURL(`file://${__dirname}/src/index.html`)
     mainWindow.on('closed', () => { mainWindow = null })
@@ -23,34 +21,45 @@ app.on('ready', () => {
 
 // Download video
 ipcMain.on('video:download', (event, url, format) => {
-
-    fs.mkdir(path.join(__dirname, 'downloads'), (err) => { 
-        if (err) { 
-            return console.error(err); 
-        }
-    }); 
+    let dir = './downloads'
+    if (!fs.existsSync(dir)) {
+        fs.mkdir(dir, (err) => { 
+            if (err) return console.error(err); 
+        })
+    }
     // Select mp3 or mp4
     const video = format == 'mp3' ? youtubedl(url, ['-x', '--audio-format', 'mp3'], { cwd: __dirname })
     : youtubedl(url, [], { cwd: __dirname })
 
     // Download video
-    youtubedl.getInfo(url, [], (err, info) => {
+    youtubedl.getInfo(url, [] , (err, info) => {
         if (err) throw err
-        video.pipe(fs.createWriteStream(`downloads/${info.title}.${format}`)) 
+        try { 
+            video.pipe(fs.createWriteStream(`./downloads/${info.title}.${format}`))
+
+        }
+        catch(e) { console.error('Failed to save the file') }   
     })
+
+    video.on('end', () => {
+        const message = `open: ${__dirname}\\downloads`
+        event.reply('video:download', message) 
+    })
+
 })
 
 
 ipcMain.on('video:info', (event, url) => {
     youtubedl.getInfo(url, [], (err, info) => {
         if (err) throw err
-        console.log('filename: ' + info._filename)
-        console.log('duration: ' + info.duration)
-        console.log('size: ' + info.filesize)
-        console.log('duration_hms: ' + info._duration_hms)
-        console.log('duration_raw: ' + Math.ceil(info._duration_raw / 1024 / 1024).toFixed(2))
+        const objInf = {
+            title: info.title,
+            filesize: info.filesize,
+            _duration_hms: info._duration_hms,
+            thumbnail: info.thumbnail 
+        }
         // Envia as informaçoes do video para scrips.js
-        event.reply('video:info', info)
+        event.reply('video:info', objInf)
     })
 })
 
