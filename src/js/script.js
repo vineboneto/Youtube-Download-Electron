@@ -41,7 +41,7 @@ button[0].addEventListener('click', (event) => {
 // MP4
 button[1].addEventListener('click', (event) => {
     event.preventDefault()
-    donwloadStarted()
+    downloadStarted()
     ipcRenderer.send('video:download', input.value, 'mp4')
 }) 
 
