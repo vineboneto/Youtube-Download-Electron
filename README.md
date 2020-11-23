@@ -10,7 +10,7 @@ Um software criado com ``electron`` e ``youtube-dl`` para fazer download de víd
  - [X] Download para video mp4
  - [ ] Barra de Progresso de download
  - [ ] Preferências de qualidade do download
- - [ ] Selecionar diretorio de download
+ - [ ] Selecionar diretório de download
   
 
 ## Instalação
