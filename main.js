@@ -34,8 +34,9 @@ ipcMain.on('video:download', (event, url, format) => {
     // Download video
     youtubedl.getInfo(url, [] , (err, info) => {
         if (err) throw err
-        try { 
-            video.pipe(fs.createWriteStream(`./downloads/${info.title}.${format}`))
+        try {
+            let title = info.title.replace(/"([^"]+(?="))"/g, '$1')
+            video.pipe(fs.createWriteStream(`./downloads/${title}.${format}`))
 
         }
         catch(e) { console.error('Failed to save the file') }   
