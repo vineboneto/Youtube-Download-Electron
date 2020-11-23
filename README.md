@@ -2,7 +2,7 @@
 
 Um software criado com ``electron`` e ``youtube-dl`` para fazer download de vídeos do youtube em mp3 e mp4
 
-# Possui
+## Possui
 
  - [X] Infomações do vídeo
  - [X] Download de videos +1 de hora
@@ -13,10 +13,16 @@ Um software criado com ``electron`` e ``youtube-dl`` para fazer download de víd
  - [ ] Selecionar diretorio de download
   
 
-# Execute
+## Instalaçao
+  - Execute
+      - ``yarn ou npm install``
+      - ``yarn start ou npm start``
+  - Construa um executável em seu computador 
+      - ``yarn make ou npm make``
+      
+## Como funciona
 
-  - yarn
-  - yarn start
-  
-# Construir
-  - yarn make
+ - Cole a URL do video na caixa de texto dísponivel
+ - Click em ``Download to mp3`` ou ``Download to mp4``
+ - Uma nova Janela será exibida informando que o download começou
+ - Quando terminado uma nova janela será exibida informando o local onde o download foi armazenado, por padrão será a pasta ``downloads`` dentro do projeto
