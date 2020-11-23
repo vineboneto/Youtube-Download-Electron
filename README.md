@@ -23,5 +23,5 @@ Um software criado com ``electron`` e ``youtube-dl`` para fazer download de víd
 
  - Cole a URL do video na caixa de texto disponivel
  - Click em ``Download to mp3`` ou ``Download to mp4``
- - Uma nova Janela será exibida informando que o download começou
+ - Uma nova janela será exibida informando que o download começou
  - Quando terminado uma nova janela será exibida informando o local onde o download foi armazenado, por padrão será a pasta ``downloads`` dentro do projeto
