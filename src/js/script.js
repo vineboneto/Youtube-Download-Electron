@@ -9,7 +9,7 @@ input.addEventListener('paste', (event) => {
     let inputValue = (event.clipboardData || window.clipboardData).getData('text')
     let URL = matchYoutubeUrl(inputValue)
     if (!URL) {
-        document.getElementById('title').innerHTML = 'URL invávlida'
+        document.getElementById('title').innerHTML = 'invalid URL'
     } else {
         ipcRenderer.send('video:info', URL)
     }
