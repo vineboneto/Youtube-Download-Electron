@@ -26,5 +26,6 @@ Um software criado com ``electron`` e ``youtube-dl`` para fazer download de víd
  - Uma nova janela será exibida informando que o download começou
  - Quando terminado uma nova janela será exibida informando o local onde o download foi armazenado, por padrão será a pasta ``downloads`` dentro do projeto
 
-
-![All text]("./assets/gif/app.gif")
+<p align="center">
+  <img src="https://github.com/vineboneto/youtube-download-electron/tree/main/assets/gif/app.gif" width="100%" />
+</p>
