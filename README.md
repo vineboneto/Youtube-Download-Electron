@@ -1,6 +1,6 @@
 # youtube-download-electron
 
-Um software criado com ``electron`` e ``youtube-dl`` para fazer download de vídeos do youtube em mp3 e mp4
+Um software criado com __electron__ e __youtube-dl__ para fazer download de vídeos do youtube em mp3 e mp4
 
 ## Possui
 
@@ -15,14 +15,14 @@ Um software criado com ``electron`` e ``youtube-dl`` para fazer download de víd
 
 ## Instalação
   - Execute
-      - ``yarn`` ou ``npm install`` para baixar as dependências
-      - ``yarn start`` ou ``npm start`` para executar a aplicação
-      - ``yarn make`` ou ``npm make`` para construir um executável em seu computador 
+      - ``yarn`` ou ``npm install`` _para baixar as dependências_
+      - ``yarn start`` ou ``npm start`` _para executar a aplicação_
+      - ``yarn make`` ou ``npm make`` _para construir um executável em seu computador_
       
 ## Como funciona
 
  - Cole a URL do video na caixa de texto disponivel
- - Click em ``Download to mp3`` ou ``Download to mp4``
+ - Click em __Download to mp3__ ou __Download to mp4__
  - Uma nova janela será exibida informando que o download começou
  - Quando terminado uma nova janela será exibida informando o local onde o download foi armazenado, por padrão será a pasta ``downloads`` dentro do projeto
 
